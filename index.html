@@ -326,6 +326,8 @@
             display: inline-block;
         }
 
+    
+
         .hero-text h2 {
             font-size: 1.8rem;
             margin-bottom: 30px;
@@ -1043,6 +1045,418 @@
             background: rgba(108, 99, 255, 0.2);
             box-shadow: 0 5px 15px rgba(108, 99, 255, 0.2);
         }
+
+        /* Ultra Premium Hiring Section */
+    .elite-hiring-section {
+        position: relative;
+        padding: 150px 0;
+        background-color: var(--darker);
+        overflow: hidden;
+        border-top: 1px solid rgba(108, 99, 255, 0.1);
+        border-bottom: 1px solid rgba(108, 99, 255, 0.1);
+    }
+
+    .elite-particles {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-image: 
+            radial-gradient(circle at 20% 30%, rgba(108, 99, 255, 0.03) 0%, transparent 20%),
+            radial-gradient(circle at 80% 70%, rgba(255, 101, 132, 0.03) 0%, transparent 20%);
+        animation: particleMove 30s infinite alternate ease-in-out;
+    }
+
+    @keyframes particleMove {
+        0% { transform: scale(1) rotate(0deg); }
+        100% { transform: scale(1.05) rotate(1deg); }
+    }
+
+    .elite-orb {
+        position: absolute;
+        border-radius: 50%;
+        background: var(--color);
+        filter: blur(60px);
+        width: var(--size);
+        height: var(--size);
+        top: var(--y);
+        left: var(--x);
+        animation: orbFloat 15s infinite ease-in-out;
+    }
+
+    .large-orb { animation-duration: 25s; animation-delay: 0s; }
+    .medium-orb { animation-duration: 20s; animation-delay: -5s; }
+    .small-orb { animation-duration: 15s; animation-delay: -10s; }
+
+    @keyframes orbFloat {
+        0%, 100% { transform: translate(0, 0); }
+        25% { transform: translate(20px, 30px); }
+        50% { transform: translate(-20px, 10px); }
+        75% { transform: translate(10px, -20px); }
+    }
+
+    .elite-hiring-header {
+        text-align: center;
+        margin-bottom: 80px;
+        position: relative;
+        z-index: 3;
+    }
+
+    .elite-title {
+        position: relative;
+        display: inline-block;
+    }
+
+    .elite-title::after {
+        content: '';
+        position: absolute;
+        bottom: -15px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 80px;
+        height: 3px;
+        background: linear-gradient(90deg, var(--primary), var(--secondary));
+        border-radius: 3px;
+    }
+
+    .elite-subtitle {
+        display: inline-block;
+        height: 40px;
+        margin-top: 30px;
+        overflow: hidden;
+        position: relative;
+    }
+
+    .subtitle-word {
+        display: block;
+        font-size: 1.3rem;
+        font-weight: 500;
+        color: rgba(255,255,255,0.7);
+        position: absolute;
+        width: 100%;
+        text-align: center;
+        animation: wordCycle 9s infinite cubic-bezier(0.77, 0, 0.175, 1);
+        opacity: 0;
+    }
+
+    .subtitle-word:nth-child(1) { animation-delay: 0s }
+    .subtitle-word:nth-child(2) { animation-delay: 3s }
+    .subtitle-word:nth-child(3) { animation-delay: 6s }
+
+    @keyframes wordCycle {
+        0% { transform: translateY(100%); opacity: 0 }
+        10% { transform: translateY(0); opacity: 1 }
+        30% { transform: translateY(0); opacity: 1 }
+        40% { transform: translateY(-100%); opacity: 0 }
+        100% { transform: translateY(-100%); opacity: 0 }
+    }
+
+    .elite-hiring-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+        gap: 30px;
+        position: relative;
+        z-index: 3;
+    }
+
+    .elite-card {
+        background: rgba(20, 20, 30, 0.6);
+        border: 1px solid rgba(255, 255, 255, 0.05);
+        border-radius: 16px;
+        padding: 3px;
+        position: relative;
+        transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    }
+
+    .elite-card::before {
+        content: '';
+        position: absolute;
+        inset: 0;
+        border-radius: 16px;
+        padding: 1px;
+        background: linear-gradient(135deg, rgba(108, 99, 255, 0.3), rgba(255, 101, 132, 0.3));
+        -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+        -webkit-mask-composite: xor;
+        mask-composite: exclude;
+        pointer-events: none;
+        opacity: 0;
+        transition: opacity 0.5s ease;
+    }
+
+    .elite-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+    }
+
+    .elite-card:hover::before {
+        opacity: 1;
+    }
+
+    .card-inner {
+        background: var(--darker);
+        border-radius: 14px;
+        padding: 40px 30px;
+        height: 100%;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .card-icon {
+        width: 80px;
+        height: 80px;
+        margin: 0 auto 30px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 2.5rem;
+        color: var(--primary);
+        background: rgba(108, 99, 255, 0.1);
+        border-radius: 50%;
+        border: 1px solid rgba(108, 99, 255, 0.2);
+        position: relative;
+        transition: all 0.5s ease;
+    }
+
+    .icon-halo {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        border-radius: 50%;
+        background: rgba(108, 99, 255, 0.1);
+        animation: pulse 4s infinite;
+        z-index: -1;
+    }
+
+    @keyframes pulse {
+        0% { transform: scale(0.8); opacity: 0.8; }
+        50% { transform: scale(1.1); opacity: 0.3; }
+        100% { transform: scale(0.8); opacity: 0.8; }
+    }
+
+    .elite-card:hover .card-icon {
+        transform: rotateY(180deg);
+        box-shadow: 0 0 30px rgba(108, 99, 255, 0.3);
+    }
+
+    .elite-card h3 {
+        font-size: 1.8rem;
+        text-align: center;
+        margin-bottom: 20px;
+        color: var(--light);
+    }
+
+    .elite-card p {
+        text-align: center;
+        color: rgba(255,255,255,0.7);
+        margin-bottom: 30px;
+        font-size: 1.1rem;
+        line-height: 1.6;
+    }
+
+    .card-features {
+        margin-bottom: 40px;
+    }
+
+    .feature {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        margin-bottom: 15px;
+        padding: 12px 20px;
+        border-radius: 8px;
+        background: rgba(255, 255, 255, 0.03);
+        transition: all 0.3s ease;
+    }
+
+    .feature:hover {
+        background: rgba(108, 99, 255, 0.1);
+        transform: translateX(5px);
+    }
+
+    .feature i {
+        color: var(--primary);
+    }
+
+    .feature span {
+        font-size: 0.95rem;
+    }
+
+    .elite-btn {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        padding: 16px;
+        background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+        color: white;
+        border-radius: 50px;
+        font-weight: 600;
+        text-decoration: none;
+        transition: all 0.3s ease;
+        position: relative;
+        overflow: hidden;
+        border: none;
+        width: 100%;
+    }
+
+    .btn-arrow {
+        transition: transform 0.3s ease;
+    }
+
+    .btn-shine {
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+        transition: all 0.8s ease;
+    }
+
+    .elite-btn:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 10px 30px rgba(108, 99, 255, 0.4);
+    }
+
+    .elite-btn:hover .btn-arrow {
+        transform: translateX(5px);
+    }
+
+    .elite-btn:hover .btn-shine {
+        left: 100%;
+    }
+
+    .card-glow {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: radial-gradient(circle at center, rgba(108, 99, 255, 0.1) 0%, transparent 70%);
+        opacity: 0;
+        transition: opacity 0.5s ease;
+        z-index: -1;
+        border-radius: 16px;
+    }
+
+    .elite-card:hover .card-glow {
+        opacity: 1;
+    }
+
+    .featured {
+        border: 1px solid var(--primary);
+        box-shadow: 0 10px 30px rgba(108, 99, 255, 0.1);
+    }
+
+    .featured-badge {
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        background: linear-gradient(135deg, var(--primary), var(--secondary));
+        color: white;
+        padding: 8px 15px;
+        border-radius: 20px;
+        font-size: 0.8rem;
+        font-weight: 600;
+        display: flex;
+        align-items: center;
+        gap: 5px;
+        z-index: 2;
+        box-shadow: 0 5px 15px rgba(108, 99, 255, 0.3);
+        animation: float 3s infinite ease-in-out;
+    }
+
+    @keyframes float {
+        0%, 100% { transform: translateY(0); }
+        50% { transform: translateY(-8px); }
+    }
+
+    .elite-cta {
+        text-align: center;
+        margin-top: 80px;
+        position: relative;
+    }
+
+    .elite-cta p {
+        font-size: 1.2rem;
+        color: rgba(255,255,255,0.7);
+        margin-bottom: 20px;
+    }
+
+    .elite-cta-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        padding: 16px 30px;
+        background: transparent;
+        border: 1px solid var(--primary);
+        border-radius: 50px;
+        color: var(--primary);
+        font-weight: 600;
+        text-decoration: none;
+        transition: all 0.3s ease;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .elite-cta-btn::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+        z-index: -1;
+        opacity: 0;
+        transition: opacity 0.3s ease;
+    }
+
+    .elite-cta-btn:hover {
+        color: white;
+        transform: translateY(-3px);
+        box-shadow: 0 10px 30px rgba(108, 99, 255, 0.3);
+    }
+
+    .elite-cta-btn:hover::before {
+        opacity: 1;
+    }
+
+    .elite-cta-btn i {
+        transition: transform 0.3s ease;
+    }
+
+    .elite-cta-btn:hover i {
+        transform: rotate(15deg) scale(1.2);
+    }
+
+    /* Responsive */
+    @media (max-width: 992px) {
+        .elite-hiring-grid {
+            grid-template-columns: 1fr;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+        
+        .elite-hiring-header {
+            margin-bottom: 60px;
+        }
+    }
+
+    @media (max-width: 768px) {
+        .elite-hiring-section {
+            padding: 100px 0;
+        }
+        
+        .elite-subtitle {
+            height: 35px;
+        }
+        
+        .subtitle-word {
+            font-size: 1.1rem;
+        }
+    }
 
         /* Certifications Section */
         #certifications {
@@ -2044,6 +2458,142 @@
             </div>
         </div>
     </section>
+    
+    <!-- Ultra Premium Hiring Section -->
+<section id="hire" class="elite-hiring-section">
+    <!-- Animated Background Elements -->
+    <div class="elite-particles"></div>
+    <div class="elite-orb large-orb" style="--x:15%;--y:20%;--size:300px;--color:rgba(108, 99, 255, 0.05)"></div>
+    <div class="elite-orb medium-orb" style="--x:85%;--y:70%;--size:200px;--color:rgba(255, 101, 132, 0.05)"></div>
+    <div class="elite-orb small-orb" style="--x:30%;--y:80%;--size:100px;--color:rgba(108, 99, 255, 0.05)"></div>
+    
+    <div class="container">
+        <div class="elite-hiring-header">
+            <h2 class="section-title elite-title">Available for <span class="text-gradient">Select</span> Work</h2>
+            <div class="elite-subtitle">
+                <span class="subtitle-word">Mission-Driven</span>
+                <span class="subtitle-word">High-Impact</span>
+                <span class="subtitle-word">Innovative</span>
+            </div>
+        </div>
+
+        <div class="elite-hiring-grid">
+            <!-- Premium Card 1 -->
+            <div class="elite-card">
+                <div class="card-inner">
+                    <div class="card-icon">
+                        <i class="fas fa-rocket"></i>
+                        <div class="icon-halo"></div>
+                    </div>
+                    <h3>Full Projects</h3>
+                    <p>End-to-end development of your web application</p>
+                    <div class="card-features">
+                        <div class="feature">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Complete solution</span>
+                        </div>
+                        <div class="feature">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Dedicated support</span>
+                        </div>
+                        <div class="feature">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Ongoing maintenance</span>
+                        </div>
+                    </div>
+                    <a href="#contact" class="elite-btn">
+                        <span>Start Project</span>
+                        <div class="btn-arrow">
+                            <i class="fas fa-arrow-right"></i>
+                        </div>
+                        <div class="btn-shine"></div>
+                    </a>
+                </div>
+                <div class="card-glow"></div>
+            </div>
+
+            <!-- Premium Card 2 (Featured) -->
+            <div class="elite-card featured">
+                <div class="card-inner">
+                    <div class="card-icon">
+                        <i class="fas fa-star"></i>
+                        <div class="icon-halo"></div>
+                    </div>
+                    <h3>Premium Retainer</h3>
+                    <p>Ongoing development with priority access</p>
+                    <div class="card-features">
+                        <div class="feature">
+                            <i class="fas fa-check-circle"></i>
+                            <span>40+ hrs/month</span>
+                        </div>
+                        <div class="feature">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Fast response</span>
+                        </div>
+                        <div class="feature">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Strategic planning</span>
+                        </div>
+                    </div>
+                    <a href="#contact" class="elite-btn">
+                        <span>Get Priority</span>
+                        <div class="btn-arrow">
+                            <i class="fas fa-arrow-right"></i>
+                        </div>
+                        <div class="btn-shine"></div>
+                    </a>
+                </div>
+                <div class="card-glow"></div>
+                <div class="featured-badge">
+                    <i class="fas fa-crown"></i>
+                    <span>Elite</span>
+                </div>
+            </div>
+
+            <!-- Premium Card 3 -->
+            <div class="elite-card">
+                <div class="card-inner">
+                    <div class="card-icon">
+                        <i class="fas fa-lightbulb"></i>
+                        <div class="icon-halo"></div>
+                    </div>
+                    <h3>Consultation</h3>
+                    <p>Expert advice for your technical challenges</p>
+                    <div class="card-features">
+                        <div class="feature">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Architecture review</span>
+                        </div>
+                        <div class="feature">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Code audit</span>
+                        </div>
+                        <div class="feature">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Technical roadmap</span>
+                        </div>
+                    </div>
+                    <a href="#contact" class="elite-btn">
+                        <span>Book Session</span>
+                        <div class="btn-arrow">
+                            <i class="fas fa-arrow-right"></i>
+                        </div>
+                        <div class="btn-shine"></div>
+                    </a>
+                </div>
+                <div class="card-glow"></div>
+            </div>
+        </div>
+
+        <div class="elite-cta">
+            <p>Have a different requirement?</p>
+            <a href="#contact" class="elite-cta-btn">
+                <span>Custom Proposal</span>
+                <i class="fas fa-gem"></i>
+            </a>
+        </div>
+    </div>
+</section>
 
     <!-- Certifications Section -->
     <section id="certifications">
@@ -2361,6 +2911,91 @@
             const hero = document.getElementById('hero');
             hero.style.backgroundPositionY = scrollPosition * 0.5 + 'px';
         });
+
+         // Initialize particles for elite section
+    document.addEventListener('DOMContentLoaded', function() {
+        const particleContainer = document.querySelector('.elite-particles');
+        const particleCount = 30;
+        
+        for (let i = 0; i < particleCount; i++) {
+            const particle = document.createElement('div');
+            particle.className = 'elite-particle';
+            
+            // Random properties
+            const size = Math.random() * 4 + 1;
+            const posX = Math.random() * 100;
+            const posY = Math.random() * 100;
+            const duration = Math.random() * 15 + 10;
+            const delay = Math.random() * 5;
+            const opacity = Math.random() * 0.4 + 0.1;
+            
+            // Set styles
+            particle.style.width = `${size}px`;
+            particle.style.height = `${size}px`;
+            particle.style.left = `${posX}%`;
+            particle.style.top = `${posY}%`;
+            particle.style.animationDuration = `${duration}s`;
+            particle.style.animationDelay = `${delay}s`;
+            particle.style.opacity = opacity;
+            
+            // Random shape and color
+            if (Math.random() > 0.3) {
+                particle.style.borderRadius = '50%';
+                particle.style.background = `rgba(108, 99, 255, ${opacity})`;
+                particle.style.boxShadow = `0 0 ${size * 2}px rgba(108, 99, 255, ${opacity * 0.8})`;
+            } else {
+                particle.style.transform = `rotate(${Math.random() * 360}deg)`;
+                particle.style.background = `rgba(255, 101, 132, ${opacity})`;
+                particle.style.boxShadow = `0 0 ${size * 2}px rgba(255, 101, 132, ${opacity * 0.8})`;
+            }
+            
+            particleContainer.appendChild(particle);
+        }
+        
+        // Add animation styles
+        const style = document.createElement('style');
+        style.textContent = `
+            .elite-particle {
+                position: absolute;
+                animation: floatParticle linear infinite;
+            }
+            
+            @keyframes floatParticle {
+                0% { transform: translate(0, 0); }
+                25% { transform: translate(${Math.random() * 40 - 20}px, ${Math.random() * 40 - 20}px); }
+                50% { transform: translate(${Math.random() * 80 - 40}px, ${Math.random() * 20 - 10}px); }
+                75% { transform: translate(${Math.random() * 40 - 20}px, ${Math.random() * 40 - 20}px); }
+                100% { transform: translate(0, 0); }
+            }
+        `;
+        document.head.appendChild(style);
+        
+        // Animate cards on scroll
+        const eliteCards = document.querySelectorAll('.elite-card');
+        
+        const animateEliteCards = () => {
+            eliteCards.forEach((card, index) => {
+                const cardPosition = card.getBoundingClientRect().top;
+                const screenPosition = window.innerHeight / 1.3;
+                
+                if (cardPosition < screenPosition) {
+                    card.style.opacity = '1';
+                    card.style.transform = 'translateY(0)';
+                }
+            });
+        };
+        
+        // Set initial state
+        eliteCards.forEach((card, index) => {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(30px)';
+            card.style.transition = `all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275) ${index * 0.1}s`;
+        });
+        
+        // Run animations
+        animateEliteCards();
+        window.addEventListener('scroll', animateEliteCards);
+    });
     </script>
 </body>
 </html>
