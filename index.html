@@ -176,6 +176,8 @@
             z-index: 1000;
             transition: var(--transition);
             border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            background: rgba(15, 15, 19, 0.5);
         }
 
         header.scrolled {
@@ -282,18 +284,55 @@
             transition: var(--transition);
             position: relative;
         }
+:root {
+            --primary: #6c63ff;
+            --primary-light: #8a85ff;
+            --primary-dark: #554dff;
+            --secondary: #ff6584;
+            --secondary-light: #ff7e98;
+            --dark: #0f0f13;
+            --darker: #08080b;
+            --light: #f8f9fa;
+            --gray: #1e1e24;
+            --gray-light: #2d2d35;
+            --transition: all 0.4s cubic-bezier(0.645, 0.045, 0.355, 1);
+            --glass: rgba(30, 30, 36, 0.7);
+            --glass-border: rgba(255, 255, 255, 0.1);
+            --shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+            --text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+            --ease-out-quint: cubic-bezier(0.22, 1, 0.36, 1);
+            --ease-in-out-quint: cubic-bezier(0.83, 0, 0.17, 1);
+        }
 
-        /* Hero Section */
+        /* Ultra-Premium Hero Section */
         #hero {
-            height: 110vh;
+            height: 100vh;
             min-height: 800px;
             display: flex;
             align-items: center;
             position: relative;
             overflow: hidden;
+            background: linear-gradient(135deg, #050510 0%, #151525 100%);
+            isolation: isolate;
         }
 
-        .particles {
+        /* Quantum Grid Background */
+        .quantum-grid {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                linear-gradient(rgba(108, 99, 255, 0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(108, 99, 255, 0.03) 1px, transparent 1px);
+            background-size: 40px 40px;
+            z-index: -1;
+            opacity: 0.5;
+        }
+
+        /* Digital Wave Animation */
+        .digital-waves {
             position: absolute;
             top: 0;
             left: 0;
@@ -303,34 +342,198 @@
             overflow: hidden;
         }
 
-        .particle {
+        .wave {
             position: absolute;
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            bottom: 0;
+            left: 0;
+            width: 200%;
+            height: 100px;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="rgba(108, 99, 255, 0.1)" d="M0,192L48,197.3C96,203,192,213,288,229.3C384,245,480,267,576,250.7C672,235,768,181,864,181.3C960,181,1056,235,1152,234.7C1248,235,1344,181,1392,154.7L1440,128L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path></svg>');
+            background-repeat: repeat-x;
+            animation: wave-animation 20s linear infinite;
+            opacity: 0.3;
+        }
+
+        .wave:nth-child(2) {
+            animation-delay: -5s;
+            animation-duration: 25s;
+            opacity: 0.2;
+            height: 150px;
+            background-position-y: 20px;
+        }
+
+        .wave:nth-child(3) {
+            animation-delay: -2s;
+            animation-duration: 15s;
+            opacity: 0.1;
+            height: 200px;
+            background-position-y: 30px;
+        }
+
+        @keyframes wave-animation {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+
+        /* Holographic Mainframe */
+        .mainframe {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 80%;
+            height: 80%;
+            z-index: -1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .mainframe-circle {
+            position: absolute;
             border-radius: 50%;
-            opacity: 0.5;
-            animation: float-particle linear infinite;
-            filter: blur(1px);
+            border: 2px solid rgba(108, 99, 255, 0.3);
+            animation: mainframe-rotate 60s linear infinite;
         }
 
-        @keyframes float-particle {
-            0% { transform: translateY(0) translateX(0); }
-            50% { transform: translateY(-100px) translateX(50px); }
-            100% { transform: translateY(0) translateX(0); }
+        .mainframe-circle:nth-child(1) {
+            width: 80%;
+            height: 80%;
+            border-width: 3px;
+            animation-direction: reverse;
         }
 
+        .mainframe-circle:nth-child(2) {
+            width: 60%;
+            height: 60%;
+            border-style: dashed;
+        }
+
+        .mainframe-circle:nth-child(3) {
+            width: 40%;
+            height: 40%;
+            border-width: 4px;
+            animation-direction: reverse;
+        }
+
+        .mainframe-circle:nth-child(4) {
+            width: 20%;
+            height: 20%;
+            border-style: dotted;
+        }
+
+        @keyframes mainframe-rotate {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        /* Floating Tech Elements */
+        .tech-elements {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            z-index: -1;
+        }
+
+        .tech-element {
+            position: absolute;
+            background: rgba(108, 99, 255, 0.1);
+            border: 1px solid rgba(108, 99, 255, 0.3);
+            backdrop-filter: blur(2px);
+            animation: tech-float 20s infinite ease-in-out;
+        }
+
+        .tech-element:nth-child(1) {
+            width: 100px;
+            height: 100px;
+            top: 20%;
+            left: 10%;
+            border-radius: 20px;
+            clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+            animation-delay: 0s;
+        }
+
+        .tech-element:nth-child(2) {
+            width: 150px;
+            height: 150px;
+            top: 60%;
+            left: 70%;
+            border-radius: 50%;
+            animation-delay: 5s;
+        }
+
+        .tech-element:nth-child(3) {
+            width: 80px;
+            height: 80px;
+            top: 30%;
+            left: 60%;
+            clip-path: polygon(0 0, 100% 0%, 100% 100%, 0 100%);
+            animation-delay: 10s;
+        }
+
+        .tech-element:nth-child(4) {
+            width: 120px;
+            height: 120px;
+            top: 70%;
+            left: 30%;
+            border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+            animation-delay: 15s;
+        }
+
+        @keyframes tech-float {
+            0%, 100% { transform: translate(0, 0) scale(1); opacity: 0.3; }
+            25% { transform: translate(20px, 30px) scale(1.2); opacity: 0.4; }
+            50% { transform: translate(-20px, 10px) scale(0.8); opacity: 0.5; }
+            75% { transform: translate(10px, -20px) scale(1.1); opacity: 0.4; }
+        }
+
+        /* Binary Code Rain */
+        .binary-rain {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            overflow: hidden;
+        }
+
+        .binary-column {
+            position: absolute;
+            top: 0;
+            width: 1em;
+            height: 100%;
+            font-family: monospace;
+            color: rgba(108, 99, 255, 0.1);
+            font-size: 1.2rem;
+            writing-mode: vertical-rl;
+            text-orientation: mixed;
+            animation: binary-fall linear infinite;
+        }
+
+        @keyframes binary-fall {
+            from { transform: translateY(-100%); }
+            to { transform: translateY(100%); }
+        }
+
+        /* Hero Content */
         .hero-content {
             display: flex;
+            flex-direction: column;
+            justify-content: center;
             align-items: center;
-            justify-content: space-between;
             width: 100%;
+            height: 100%;
             position: relative;
             z-index: 2;
-            margin-top: 6rem;
+            text-align: center;
+            padding: 0 20px;
         }
 
         .hero-text {
-            flex: 1;
-            z-index: 2;
+            max-width: 800px;
             opacity: 0;
             transform: translateY(30px);
             transition: opacity 0.8s var(--ease-out-quint) 0.2s, transform 0.8s var(--ease-out-quint) 0.2s;
@@ -343,15 +546,23 @@
 
         .hero-text h1 {
             font-family: 'Montserrat', sans-serif;
-            font-size: 4.5rem;
+            font-size: 5rem;
             font-weight: 800;
-            margin-bottom: 10px;
-            line-height: 1.2;
-            text-shadow: var(--text-shadow);
+            margin-bottom: 20px;
+            line-height: 1.1;
+            background: linear-gradient(135deg, #ffffff, #d4d1ff);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            position: relative;
+            text-shadow: 0 2px 10px rgba(108, 99, 255, 0.3);
         }
 
         .hero-text h1 span {
-            color: var(--primary);
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
             position: relative;
             display: inline-block;
         }
@@ -362,11 +573,12 @@
             bottom: 0;
             left: 0;
             width: 100%;
-            height: 3px;
+            height: 4px;
             background: linear-gradient(90deg, var(--primary), var(--secondary));
             transform-origin: right;
             transform: scaleX(0);
-            transition: transform 0.6s var(--ease-out-quint) 0.8s;
+            transition: transform 0.8s var(--ease-out-quint) 0.8s;
+            box-shadow: 0 0 15px var(--primary);
         }
 
         .hero-text.animate h1 span::after {
@@ -375,128 +587,205 @@
         }
 
         .hero-text h2 {
-            font-size: 1.8rem;
-            margin-bottom: 25px;
+            font-size: 2.2rem;
+            margin-bottom: 30px;
             font-weight: 400;
-            opacity: 0.9;
+            color: rgba(255, 255, 255, 0.9);
+            position: relative;
+            display: inline-block;
+        }
+
+        .hero-text h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 3px;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            border-radius: 3px;
         }
 
         .hero-text p {
-            font-size: 1.2rem;
+            font-size: 1.3rem;
             margin-bottom: 50px;
-            max-width: 600px;
             opacity: 0.8;
             line-height: 1.8;
+            color: rgba(255, 255, 255, 0.7);
         }
 
         .hero-btns {
             display: flex;
-            gap: 20px;
-        }
-
-        .btn-outline {
-            background: transparent;
-            border: 2px solid var(--primary);
-            color: var(--primary);
-            box-shadow: none;
-        }
-
-        .btn-outline:hover {
-            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
-            color: var(--light);
-            border-color: transparent;
-        }
-
-        .hero-image {
-            flex: 1;
-            display: flex;
+            gap: 25px;
             justify-content: center;
-            align-items: center;
+        }
+
+        /* Holographic Buttons */
+        .btn-hologram {
             position: relative;
+            overflow: hidden;
             z-index: 1;
-            opacity: 0;
-            transform: translateY(30px);
-            transition: opacity 0.8s var(--ease-out-quint) 0.4s, transform 0.8s var(--ease-out-quint) 0.4s;
-        }
-
-        .hero-image.animate {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        .hero-image img {
-            max-width: 90%;
-            height: auto;
-            border-radius: 20px;
-            animation: float 6s ease-in-out infinite;
-            box-shadow: var(--shadow);
-            border: 5px solid var(--glass);
+            border: none;
+            transition: all 0.4s cubic-bezier(0.215, 0.61, 0.355, 1);
             backdrop-filter: blur(5px);
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
         }
 
-        @keyframes float {
-            0% { transform: translateY(0px); }
-            50% { transform: translateY(-20px); }
-            100% { transform: translateY(0px); }
-        }
-
-        .hero-bg {
+        .btn-hologram::before {
+            content: '';
             position: absolute;
             top: 0;
-            right: 0;
-            width: 60%;
+            left: 0;
+            width: 100%;
             height: 100%;
-            background: linear-gradient(135deg, rgba(108, 99, 255, 0.1), rgba(255, 101, 132, 0.1));
-            clip-path: polygon(25% 0%, 100% 0%, 100% 100%, 0% 100%);
-            z-index: 0;
-            filter: blur(50px);
-            opacity: 0.5;
-        }
-
-        .social-links {
-            position: fixed;
-            left: 40px;
-            bottom: 40px;
-            display: flex;
-            flex-direction: column;
-            gap: 20px;
-            z-index: 100;
-        }
-
-        .social-links a {
-            color: var(--light);
-            font-size: 1.4rem;
-            transition: var(--transition);
-            width: 50px;
-            height: 50px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border-radius: 50%;
-            background: var(--glass);
-            border: 1px solid var(--glass-border);
-            backdrop-filter: blur(5px);
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            background: linear-gradient(135deg, 
+                rgba(108, 99, 255, 0.3), 
+                rgba(255, 101, 132, 0.3));
+            z-index: -1;
             opacity: 0;
-            transform: translateY(20px);
-            transition: all 0.6s var(--ease-out-quint);
+            transition: opacity 0.4s ease;
+            border-radius: 50px;
         }
 
-        .social-links a:nth-child(1) { transition-delay: 0.6s; }
-        .social-links a:nth-child(2) { transition-delay: 0.7s; }
-        .social-links a:nth-child(3) { transition-delay: 0.8s; }
-        .social-links a:nth-child(4) { transition-delay: 0.9s; }
-
-        .social-links.animate a {
-            opacity: 1;
-            transform: translateY(0);
+        .btn-hologram::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(
+                to bottom right,
+                transparent,
+                rgba(255, 255, 255, 0.2),
+                transparent
+            );
+            transform: rotate(45deg);
+            z-index: -1;
+            transition: all 0.6s ease;
         }
 
-        .social-links a:hover {
-            color: var(--primary);
+        .btn-hologram:hover {
             transform: translateY(-5px);
-            background: rgba(108, 99, 255, 0.2);
-            box-shadow: 0 8px 25px rgba(108, 99, 255, 0.3);
+            box-shadow: 0 15px 30px rgba(108, 99, 255, 0.4);
+        }
+
+        .btn-hologram:hover::before {
+            opacity: 1;
+        }
+
+        .btn-hologram:hover::after {
+            animation: hologram-shine 1.5s ease infinite;
+        }
+
+        @keyframes hologram-shine {
+            0% { left: -50%; }
+            100% { left: 150%; }
+        }
+
+        /* Digital Avatar Placeholder */
+        .digital-avatar {
+            width: 200px;
+            height: 200px;
+            margin: 0 auto 40px;
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .avatar-core {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            background: radial-gradient(circle, 
+                rgba(108, 99, 255, 0.1) 0%, 
+                transparent 70%);
+            border: 3px solid rgba(108, 99, 255, 0.3);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            animation: avatar-pulse 4s infinite ease-in-out;
+        }
+
+        .avatar-inner {
+            width: 80%;
+            height: 80%;
+            border-radius: 50%;
+            background: rgba(108, 99, 255, 0.1);
+            border: 2px dashed rgba(108, 99, 255, 0.3);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            animation: avatar-rotate 20s infinite linear;
+        }
+
+        .avatar-icon {
+            font-size: 3rem;
+            color: var(--primary);
+            animation: avatar-icon-pulse 3s infinite ease-in-out;
+        }
+
+        @keyframes avatar-pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+
+        @keyframes avatar-rotate {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        @keyframes avatar-icon-pulse {
+            0%, 100% { opacity: 0.8; transform: scale(1); }
+            50% { opacity: 1; transform: scale(1.2); }
+        }
+
+        /* Responsive Adjustments */
+        @media (max-width: 1200px) {
+            .hero-text h1 {
+                font-size: 4rem;
+            }
+        }
+
+        @media (max-width: 992px) {
+            .hero-text h1 {
+                font-size: 3.5rem;
+            }
+
+            .hero-text h2 {
+                font-size: 1.8rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero-text h1 {
+                font-size: 3rem;
+            }
+
+            .hero-text h2 {
+                font-size: 1.5rem;
+            }
+
+            .hero-text p {
+                font-size: 1.1rem;
+            }
+
+            .hero-btns {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .btn {
+                width: 100%;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .hero-text h1 {
+                font-size: 2.5rem;
+            }
         }
 
         /* About Section */
@@ -2326,29 +2615,59 @@
         </div>
     </header>
 
-    <!-- Hero Section -->
+    <!-- Ultra-Premium Digital Hero Section -->
     <section id="hero">
-        <div class="particles" id="particles"></div>
-        <div class="container hero-content">
-            <div class="hero-text">
-                <h1>Hi, I'm <span>Chetan Chaudhari</span></h1>
-                <h2 class="text-gradient">Full Stack Developer</h2>
-                <p>I build exceptional digital experiences with modern technologies. Currently freelancing and creating innovative web solutions for clients worldwide.</p>
-                <div class="hero-btns">
-                    <a href="#projects" class="btn">View My Work</a>
-                    <a href="#contact" class="btn btn-outline">Contact Me</a>
+        <!-- Quantum Grid Background -->
+        <div class="quantum-grid"></div>
+        
+        <!-- Digital Waves -->
+        <div class="digital-waves">
+            <div class="wave"></div>
+            <div class="wave"></div>
+            <div class="wave"></div>
+        </div>
+        
+        <!-- Holographic Mainframe -->
+        <div class="mainframe">
+            <div class="mainframe-circle"></div>
+            <div class="mainframe-circle"></div>
+            <div class="mainframe-circle"></div>
+            <div class="mainframe-circle"></div>
+        </div>
+        
+        <!-- Floating Tech Elements -->
+        <div class="tech-elements">
+            <div class="tech-element"></div>
+            <div class="tech-element"></div>
+            <div class="tech-element"></div>
+            <div class="tech-element"></div>
+        </div>
+        
+        <!-- Binary Code Rain -->
+        <div class="binary-rain" id="binaryRain"></div>
+        
+        <!-- Hero Content -->
+        <div class="hero-content">
+            <!-- Digital Avatar Placeholder -->
+            <div class="digital-avatar">
+                <div class="avatar-core">
+                    <div class="avatar-inner">
+                        <div class="avatar-icon">
+                            <i class="fas fa-code"></i>
+                        </div>
+                    </div>
                 </div>
             </div>
-            <div class="hero-image">
-                <img src="image.png" alt="Developer Illustration">
+            
+            <div class="hero-text">
+                <h1>Hi, I'm <span>Chetan Chaudhari</span></h1>
+                <h2>Full Stack Developer & Digital Architect</h2>
+                <p>Transforming ideas into cutting-edge digital experiences through innovative code and creative problem-solving.</p>
+                <div class="hero-btns">
+                    <a href="#projects" class="btn btn-hologram">View My Work</a>
+                    <a href="#contact" class="btn btn-outline btn-hologram">Let's Connect</a>
+                </div>
             </div>
-        </div>
-        <div class="hero-bg"></div>
-        <div class="social-links">
-            <a href="https://github.com/chetancdhri" target="_blank"><i class="fab fa-github"></i></a>
-            <a href="https://linkedin.com/in/chetan-chaudhari-521b18230" target="_blank"><i class="fab fa-linkedin-in"></i></a>
-            <a href="https://twitter.com/tfchetan" target="_blank"><i class="fab fa-twitter"></i></a>
-            <a href="https://instagram.com/tfchetan" target="_blank"><i class="fab fa-instagram"></i></a>
         </div>
     </section>
 
@@ -3197,6 +3516,54 @@
                 }
             `;
             document.head.appendChild(style);
+        });
+
+        // Create binary rain effect
+        function createBinaryRain() {
+            const container = document.getElementById('binaryRain');
+            const columnCount = Math.floor(window.innerWidth / 20);
+            
+            for (let i = 0; i < columnCount; i++) {
+                const column = document.createElement('div');
+                column.className = 'binary-column';
+                column.style.left = `${(i / columnCount) * 100}%`;
+                column.style.animationDuration = `${Math.random() * 5 + 5}s`;
+                column.style.animationDelay = `${Math.random() * 5}s`;
+                
+                // Generate random binary
+                let binaryText = '';
+                const binaryLength = Math.floor(Math.random() * 30) + 20;
+                for (let j = 0; j < binaryLength; j++) {
+                    binaryText += Math.random() > 0.5 ? '1' : '0';
+                }
+                
+                column.textContent = binaryText;
+                container.appendChild(column);
+            }
+        }
+
+        // Initialize effects
+        document.addEventListener('DOMContentLoaded', function() {
+            createBinaryRain();
+            
+            // Add interactive effects to tech elements
+            const techElements = document.querySelectorAll('.tech-element');
+            document.addEventListener('mousemove', (e) => {
+                const x = e.clientX / window.innerWidth;
+                const y = e.clientY / window.innerHeight;
+                
+                techElements.forEach((el, i) => {
+                    const offsetX = (x - 0.5) * 40;
+                    const offsetY = (y - 0.5) * 40;
+                    
+                    switch(i) {
+                        case 0: el.style.transform = `translate(${offsetX}px, ${offsetY}px) rotate(${x * 30}deg)`; break;
+                        case 1: el.style.transform = `translate(${-offsetX}px, ${-offsetY}px)`; break;
+                        case 2: el.style.transform = `translate(${offsetY}px, ${-offsetX}px)`; break;
+                        case 3: el.style.transform = `translate(${-offsetY}px, ${offsetX}px)`; break;
+                    }
+                });
+            });
         });
     </script>
 </body>
