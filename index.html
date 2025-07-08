@@ -1912,6 +1912,197 @@
             box-shadow: 0 10px 25px rgba(67, 97, 238, 0.4);
         }
 
+        /* New Sections */
+        
+        /* Process Section */
+        #process {
+            background-color: var(--light);
+            position: relative;
+        }
+
+        .process-container {
+            display: flex;
+            flex-direction: column;
+            gap: 60px;
+            position: relative;
+        }
+
+        .process-step {
+            display: flex;
+            gap: 40px;
+            align-items: center;
+            opacity: 0;
+            transform: translateX(-50px);
+            transition: all 0.8s var(--ease-out-quint);
+        }
+
+        #process.animate .process-step {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        #process.animate .process-step:nth-child(1) { transition-delay: 0.2s; }
+        #process.animate .process-step:nth-child(2) { transition-delay: 0.4s; }
+        #process.animate .process-step:nth-child(3) { transition-delay: 0.6s; }
+        #process.animate .process-step:nth-child(4) { transition-delay: 0.8s; }
+
+        .process-step:nth-child(even) {
+            flex-direction: row-reverse;
+            transform: translateX(50px);
+        }
+
+        #process.animate .process-step:nth-child(even) {
+            transform: translateX(0);
+        }
+
+        .process-number {
+            width: 80px;
+            height: 80px;
+            flex-shrink: 0;
+            background: rgba(67, 97, 238, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--primary);
+            border: 2px solid var(--primary);
+            transition: var(--transition);
+        }
+
+        .process-step:hover .process-number {
+            background: var(--primary);
+            color: var(--light);
+            transform: scale(1.1);
+        }
+
+        .process-content {
+            background: var(--light);
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: var(--shadow);
+            flex: 1;
+        }
+
+        .process-title {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            color: var(--dark);
+            position: relative;
+        }
+
+        .process-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 50px;
+            height: 3px;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            border-radius: 3px;
+        }
+
+        .process-description {
+            color: var(--text-light);
+            line-height: 1.8;
+            margin-bottom: 25px;
+        }
+
+        .process-features {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .process-feature {
+            background: rgba(67, 97, 238, 0.1);
+            padding: 12px 20px;
+            border-radius: 8px;
+            font-size: 0.95rem;
+            color: var(--primary);
+            border: 1px solid rgba(67, 97, 238, 0.2);
+            transition: var(--transition);
+        }
+
+        .process-feature:hover {
+            background: var(--primary);
+            color: var(--light);
+            transform: translateY(-5px);
+        }
+
+        /* Tools Section */
+        #tools {
+            background-color: var(--light-gray);
+            position: relative;
+        }
+
+        .tools-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 30px;
+        }
+
+        .tool-card {
+            background: var(--light);
+            border-radius: 15px;
+            padding: 30px 20px;
+            text-align: center;
+            transition: var(--transition);
+            box-shadow: var(--shadow);
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s var(--ease-out-quint);
+        }
+
+        #tools.animate .tool-card {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        #tools.animate .tool-card:nth-child(1) { transition-delay: 0.1s; }
+        #tools.animate .tool-card:nth-child(2) { transition-delay: 0.2s; }
+        #tools.animate .tool-card:nth-child(3) { transition-delay: 0.3s; }
+        #tools.animate .tool-card:nth-child(4) { transition-delay: 0.4s; }
+        #tools.animate .tool-card:nth-child(5) { transition-delay: 0.5s; }
+        #tools.animate .tool-card:nth-child(6) { transition-delay: 0.6s; }
+        #tools.animate .tool-card:nth-child(7) { transition-delay: 0.7s; }
+        #tools.animate .tool-card:nth-child(8) { transition-delay: 0.8s; }
+
+        .tool-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-hover);
+        }
+
+        .tool-icon {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.5rem;
+            color: var(--primary);
+            transition: var(--transition);
+        }
+
+        .tool-card:hover .tool-icon {
+            transform: scale(1.2);
+            color: var(--secondary);
+        }
+
+        .tool-name {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--dark);
+            margin-bottom: 10px;
+        }
+
+        .tool-category {
+            font-size: 0.9rem;
+            color: var(--text-light);
+        }
+
         /* Responsive */
         @media (max-width: 1200px) {
             .section-title {
@@ -1988,6 +2179,14 @@
 
             .stats-container {
                 grid-template-columns: repeat(2, 1fr);
+            }
+
+            .process-step {
+                flex-direction: column;
+            }
+
+            .process-step:nth-child(even) {
+                flex-direction: column;
             }
         }
 
@@ -2066,6 +2265,10 @@
             .blog-container {
                 grid-template-columns: 1fr;
             }
+
+            .tools-container {
+                grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+            }
         }
 
         @media (max-width: 576px) {
@@ -2105,6 +2308,14 @@
                 bottom: 20px;
                 right: 20px;
             }
+
+            .process-content {
+                padding: 30px 20px;
+            }
+
+            .process-title {
+                font-size: 1.5rem;
+            }
         }
     </style>
 </head>
@@ -2119,6 +2330,7 @@
                 <li><a href="#experience">Experience</a></li>
                 <li><a href="#projects">Projects</a></li>
                 <li><a href="#certifications">Certifications</a></li>
+                <li><a href="#process">Process</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
             <div class="hamburger">
@@ -2281,6 +2493,65 @@
         </div>
     </section>
 
+    <!-- Tools Section -->
+    <section id="tools">
+        <div class="container">
+            <h2 class="section-title">Development <span class="text-gradient">Tools</span></h2>
+            <p class="section-subtitle" style="text-align: center; margin-bottom: 50px; color: var(--text-light);">The tools and technologies I use to bring ideas to life</p>
+            <div class="tools-container">
+                <div class="tool-card">
+                    <div class="tool-icon">
+                        <i class="fab fa-github"></i>
+                    </div>
+                    <div class="tool-name">GitHub</div>
+                    <div class="tool-category">Version Control</div>
+                </div>
+                <div class="tool-card">
+                    <div class="tool-icon">
+                        <i class="fab fa-figma"></i>
+                    </div>
+                    <div class="tool-name">Figma</div>
+                    <div class="tool-category">UI/UX Design</div>
+                </div>
+                <div class="tool-card">
+                    <div class="tool-icon">
+                        <i class="fab fa-trello"></i>
+                    </div>
+                    <div class="tool-name">Trello</div>
+                    <div class="tool-category">Project Management</div>
+                </div>
+                <div class="tool-card">
+                    <div class="tool-icon">
+                        <i class="fab fa-slack"></i>
+                    </div>
+                    <div class="tool-name">Slack</div>
+                    <div class="tool-category">Communication</div>
+                </div>
+                <div class="tool-card">
+                    <div class="tool-icon">
+                        <i class="fab fa-docker"></i>
+                    </div>
+                    <div class="tool-name">Docker</div>
+                    <div class="tool-category">Containerization</div>
+                </div>
+                <div class="tool-card">
+                    <div class="tool-icon">
+                        <i class="fas fa-terminal"></i>
+                    </div>
+                    <div class="tool-name">Postman</div>
+                    <div class="tool-category">API Testing</div>
+                </div>
+                <div class="tool-card">
+                    <div class="tool-icon">
+                        <i class="fab fa-npm"></i>
+                    </div>
+                    <div class="tool-name">npm</div>
+                    <div class="tool-category">Package Manager</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Experience Section -->
     <section id="experience">
         <div class="container">
@@ -2352,6 +2623,72 @@
                             <li>Supervised recruitment drives for various companies</li>
                             <li>Improved student placement rates by 20% through targeted training programs</li>
                         </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Process Section -->
+    <section id="process">
+        <div class="container">
+            <h2 class="section-title">My Development <span class="text-gradient">Process</span></h2>
+            <p class="section-subtitle" style="text-align: center; margin-bottom: 60px; color: var(--text-light);">A structured approach to delivering high-quality solutions</p>
+            
+            <div class="process-container">
+                <div class="process-step">
+                    <div class="process-number">1</div>
+                    <div class="process-content">
+                        <h3 class="process-title">Discovery & Planning</h3>
+                        <p class="process-description">Every successful project begins with thorough research and planning. I work closely with clients to understand their goals, target audience, and requirements to create a detailed project roadmap.</p>
+                        <div class="process-features">
+                            <div class="process-feature">Requirement Analysis</div>
+                            <div class="process-feature">User Research</div>
+                            <div class="process-feature">Project Roadmap</div>
+                            <div class="process-feature">Technical Specifications</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="process-step">
+                    <div class="process-number">2</div>
+                    <div class="process-content">
+                        <h3 class="process-title">Design & Prototyping</h3>
+                        <p class="process-description">I create intuitive user interfaces and engaging user experiences through wireframing and prototyping. This phase ensures the final product will be both functional and visually appealing.</p>
+                        <div class="process-features">
+                            <div class="process-feature">Wireframing</div>
+                            <div class="process-feature">UI/UX Design</div>
+                            <div class="process-feature">Prototyping</div>
+                            <div class="process-feature">Design Systems</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="process-step">
+                    <div class="process-number">3</div>
+                    <div class="process-content">
+                        <h3 class="process-title">Development</h3>
+                        <p class="process-description">Using modern technologies and best practices, I transform designs into fully functional applications. My development process emphasizes clean, maintainable code and follows agile methodologies.</p>
+                        <div class="process-features">
+                            <div class="process-feature">Frontend Development</div>
+                            <div class="process-feature">Backend Development</div>
+                            <div class="process-feature">Database Design</div>
+                            <div class="process-feature">API Integration</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="process-step">
+                    <div class="process-number">4</div>
+                    <div class="process-content">
+                        <h3 class="process-title">Testing & Deployment</h3>
+                        <p class="process-description">Before launch, I rigorously test all functionality across devices and browsers. After thorough quality assurance, I deploy the application with proper monitoring and analytics in place.</p>
+                        <div class="process-features">
+                            <div class="process-feature">Unit Testing</div>
+                            <div class="process-feature">Performance Optimization</div>
+                            <div class="process-feature">CI/CD Pipeline</div>
+                            <div class="process-feature">Deployment</div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -2992,7 +3329,7 @@
         // Intersection Observer for animations
         const animateOnScroll = () => {
             const sections = document.querySelectorAll('section');
-            const elements = document.querySelectorAll('.section-title, .hero-text, .hero-image, .about-image, .about-text, .skill-item, .skill-card, .tab-btn, .tab-content, .project-card, .certification-card, .contact-info, .contact-item, .form-group, .hiring-card, .stat-item, .testimonial-card, .blog-card');
+            const elements = document.querySelectorAll('.section-title, .hero-text, .hero-image, .about-image, .about-text, .skill-item, .skill-card, .tab-btn, .tab-content, .project-card, .certification-card, .contact-info, .contact-item, .form-group, .hiring-card, .stat-item, .testimonial-card, .blog-card, .process-step, .tool-card');
             
             const observer = new IntersectionObserver((entries) => {
                 entries.forEach(entry => {
